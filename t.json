@@ -1,0 +1,267 @@
+data: {
+  "type": "update",
+  "data": {
+    "nodes": [
+      {
+        "id": "node_0",
+        "url": "https://web-scraping.dev/products",
+        "title": "products",
+        "depth": 0,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 0,
+        "outgoingLinks": 4
+      },
+      {
+        "id": "node_1",
+        "url": "https://web-scraping.dev/",
+        "title": "web-scraping.dev",
+        "depth": 1,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_2",
+        "url": "https://web-scraping.dev/docs",
+        "title": "docs",
+        "depth": 1,
+        "keywords": [
+          "const",
+          "swaggeruibundle",
+          "url",
+          "openapi",
+          "json",
+          "dom_id",
+          "swagger",
+          "layout",
+          "baselayout",
+          "deeplinking"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_3",
+        "url": "https://web-scraping.dev/api/graphql",
+        "title": "graphql",
+        "depth": 1,
+        "keywords": [
+          "loading",
+          "const",
+          "example_query",
+          "welcome",
+          "graphiql",
+          "browser",
+          "tool",
+          "writing",
+          "validating",
+          "testing"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_4",
+        "url": "https://web-scraping.dev/reviews",
+        "title": "reviews",
+        "depth": 1,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "node_0",
+        "target": "node_1"
+      },
+      {
+        "source": "node_0",
+        "target": "node_2"
+      },
+      {
+        "source": "node_0",
+        "target": "node_3"
+      },
+      {
+        "source": "node_0",
+        "target": "node_4"
+      }
+    ],
+    "stats": {
+      "totalPages": 5,
+      "totalLinks": 4,
+      "depth": 1,
+      "duplicatesRemoved": 57,
+      "crawlTime": 4,
+      "averageLinksPerPage": 0.8
+    }
+  }
+}
+
+data: {
+  "type": "complete",
+  "data": {
+    "nodes": [
+      {
+        "id": "node_0",
+        "url": "https://web-scraping.dev/products",
+        "title": "products",
+        "depth": 0,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 0,
+        "outgoingLinks": 4
+      },
+      {
+        "id": "node_1",
+        "url": "https://web-scraping.dev/",
+        "title": "web-scraping.dev",
+        "depth": 1,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_2",
+        "url": "https://web-scraping.dev/docs",
+        "title": "docs",
+        "depth": 1,
+        "keywords": [
+          "const",
+          "swaggeruibundle",
+          "url",
+          "openapi",
+          "json",
+          "dom_id",
+          "swagger",
+          "layout",
+          "baselayout",
+          "deeplinking"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_3",
+        "url": "https://web-scraping.dev/api/graphql",
+        "title": "graphql",
+        "depth": 1,
+        "keywords": [
+          "loading",
+          "const",
+          "example_query",
+          "welcome",
+          "graphiql",
+          "browser",
+          "tool",
+          "writing",
+          "validating",
+          "testing"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      },
+      {
+        "id": "node_4",
+        "url": "https://web-scraping.dev/reviews",
+        "title": "reviews",
+        "depth": 1,
+        "keywords": [
+          "web",
+          "scraping",
+          "dev",
+          "docs",
+          "api",
+          "graphql",
+          "products",
+          "reviews",
+          "testimonials",
+          "file"
+        ],
+        "incomingLinks": 1,
+        "outgoingLinks": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "node_0",
+        "target": "node_1"
+      },
+      {
+        "source": "node_0",
+        "target": "node_2"
+      },
+      {
+        "source": "node_0",
+        "target": "node_3"
+      },
+      {
+        "source": "node_0",
+        "target": "node_4"
+      }
+    ],
+    "stats": {
+      "totalPages": 5,
+      "totalLinks": 4,
+      "depth": 1,
+      "duplicatesRemoved": 57,
+      "crawlTime": 4,
+      "averageLinksPerPage": 0.8
+    }
+  }
+}
