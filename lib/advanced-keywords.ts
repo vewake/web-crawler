@@ -21,7 +21,15 @@ const STOPWORDS = new Set([
   "click", "here", "more", "read", "view", "see", "get", "go", "home", "about", "contact", "page",
   "site", "website", "web", "link", "links", "menu", "navigation", "nav", "footer", "header",
   "copyright", "rights", "reserved", "privacy", "policy", "terms", "conditions", "login", "sign",
-  "signup", "register", "account", "profile", "dashboard", "admin", "logout", "search"
+  "signup", "register", "account", "profile", "dashboard", "admin", "logout", "search",
+  // Code/Technical noise
+  "var", "let", "const", "function", "return", "true", "false", "null", "undefined", "void",
+  "class", "import", "export", "default", "extends", "implements", "interface", "package",
+  "private", "protected", "public", "static", "yield", "typeof", "instanceof", "window",
+  "document", "console", "log", "error", "warn", "info", "debug", "alert", "prompt", "confirm",
+  "navigator", "location", "history", "screen", "performance", "localstorage", "sessionstorage",
+  "cookie", "json", "ajax", "fetch", "axios", "jquery", "bootstrap", "tailwind", "sass", "less",
+  "u002f", "u0026", "u003c", "u003e", "nbsp", "amp", "quot", "apos", "copy", "reg", "trade"
 ]);
 
 // Technology and domain keywords for scoring
@@ -64,7 +72,7 @@ export function extractAdvancedKeywords(text: string, url?: string): KeywordAnal
     .trim();
 
   // 2. Extract N-grams (1, 2, 3 words)
-  const words = cleanText.split(' ').filter(w => w.length > 2 && !STOPWORDS.has(w));
+  const words = cleanText.split(' ').filter(w => w.length > 2 && !STOPWORDS.has(w) && !isGarbage(w));
   const bigrams = generateNgrams(cleanText, 2);
   const trigrams = generateNgrams(cleanText, 3);
 
@@ -142,7 +150,7 @@ function generateNgrams(text: string, n: number): string[] {
     // Ensure no stopwords inside the n-gram (strict) or just ensure it doesn't consist ONLY of stopwords
     // A better heuristic: n-gram shouldn't start or end with stopword (handled in freq count), 
     // and should contain at least one non-stopword.
-    const hasContentWord = slice.some(w => !STOPWORDS.has(w) && w.length > 2);
+    const hasContentWord = slice.some(w => !STOPWORDS.has(w) && w.length > 2 && !isGarbage(w));
     if (hasContentWord) {
       ngrams.push(slice.join(' '));
     }
@@ -272,6 +280,21 @@ function isDomainSpecific(word: string): boolean {
       word.includes('solution') || word.includes('framework') ||
       word.includes('application') || word.includes('service') ||
       word.includes('network') || word.includes('protocol'));
+}
+
+function isGarbage(word: string): boolean {
+  // Filter out obvious garbage
+  if (word.length > 30) return true; // Too long
+  if (word.includes('u00')) return true; // Unicode escapes
+  if (/^\d+$/.test(word)) return true; // Just numbers
+  if (/^[0-9a-f]{8,}$/.test(word)) return true; // Hex strings
+  if (word.includes('_')) return true; // Snake case (often code)
+  if (word.includes('=')) return true; // Assignments
+  // Check for mashed together words (e.g., "windowfunctionvardocument")
+  // This is hard to do perfectly without a dictionary, but we can check for common code patterns
+  if (word.includes('function') || word.includes('return') || word.includes('typeof')) return true;
+
+  return false;
 }
 
 function calculateContentScore(totalWords: number, uniqueWords: number, entities: number): number {

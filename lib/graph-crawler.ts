@@ -307,6 +307,9 @@ async function fetchAndExtractLinks(url: string, timeout: number): Promise<{ url
     // Use cheerio instead of DOMParser
     const $ = cheerio.load(html)
 
+    // Remove script, style, and other non-content elements
+    $('script, style, noscript, iframe, svg, link, meta').remove();
+
     // Extract all links
     const links: string[] = []
     $('a').each((_, element) => {

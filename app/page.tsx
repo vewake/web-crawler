@@ -84,7 +84,7 @@ export default function Home() {
         <CrawlerInput onStartCrawl={handleStartCrawl} isLoading={isLoading} />
 
         {crawlData && (
-          <div className="grid gap-6 mt-8">
+          <div className="gap-6 mt-8">
             {stats && <CrawlerStats stats={stats} />}
 
             <Tabs defaultValue="graph" className="w-full">
